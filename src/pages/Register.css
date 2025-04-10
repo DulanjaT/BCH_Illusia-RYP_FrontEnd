@@ -1,0 +1,25 @@
+/* RegisterPage.css */
+.register-container {
+    margin-top: 6rem;
+    background: linear-gradient(to bottom right, #f1f5fb, #e5ebf3);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  
+  .register-paper {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+  }
+  
+  .register-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .register-subtitle {
+    color: #7f8c8d;
+    font-family: 'Lato', sans-serif;
+  }
+  

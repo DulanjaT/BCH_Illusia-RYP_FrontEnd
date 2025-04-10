@@ -10,46 +10,50 @@ import {
 import { useNavigate, Outlet } from 'react-router-dom';
 import './Dashboard.css';
 
-
 export default function Dashboard() {
     const navigate = useNavigate();
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className="dashboard-container">
             <Box mt={5}>
-                <Typography variant="h4" gutterBottom>
-                    Welcome to Illusia ry's Booking System
+                <Typography variant="h3" className="dashboard-heading" gutterBottom>
+                    Welcome to Illusia ry
                 </Typography>
-                <Typography variant="subtitle1" gutterBottom>
+                <Typography variant="subtitle1" className="dashboard-subheading" gutterBottom>
                     Browse storage items, make bookings, and manage your reservations.
                 </Typography>
 
-                <Box display="grid" gridTemplateColumns={{ xs: '1fr', sm: '1fr 1fr 1fr' }} gap={3} mt={4}>
-                    <Card>
+                <Box className="card-grid">
+                    <Card className="dashboard-card">
                         <CardActionArea onClick={() => navigate('/dashboard/items')}>
                             <CardContent>
-                                <Typography variant="h6">Browse Items</Typography>
-                                <Typography variant="body2">View all available storage items</Typography>
+                                <Typography variant="h6" className="card-title">Browse Items</Typography>
+                                <Typography variant="body2" className="card-text">
+                                    View all available storage items
+                                </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
 
-                    <Card>
+                    <Card className="dashboard-card">
                         <CardContent>
-                            <Typography variant="h6">Make a Booking</Typography>
-                            <Typography variant="body2">Add items to your cart and select dates</Typography>
+                            <Typography variant="h6" className="card-title">Make a Booking</Typography>
+                            <Typography variant="body2" className="card-text">
+                                Add items to your cart and select dates
+                            </Typography>
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="dashboard-card">
                         <CardContent>
-                            <Typography variant="h6">My Bookings</Typography>
-                            <Typography variant="body2">View and manage your own reservations</Typography>
+                            <Typography variant="h6" className="card-title">My Bookings</Typography>
+                            <Typography variant="body2" className="card-text">
+                                View and manage your own reservations
+                            </Typography>
                         </CardContent>
                     </Card>
                 </Box>
 
-                {/* Nested route content will render here */}
                 <Outlet />
             </Box>
         </Container>

@@ -1,0 +1,25 @@
+/* LoginPage.css */
+.login-container {
+    margin-top: 6rem;
+    background: linear-gradient(to bottom right, #f2f4f8, #e5ecf3);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  
+  .login-paper {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+  }
+  
+  .login-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .login-subtitle {
+    color: #7f8c8d;
+    font-family: 'Lato', sans-serif;
+  }
+  

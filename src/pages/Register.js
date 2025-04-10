@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RegisterPage.css';
+import './Register.css';
 import { useNavigate } from 'react-router-dom';
 import {
     Button,
@@ -7,7 +7,8 @@ import {
     Typography,
     Container,
     Box,
-    Alert
+    Alert,
+    Paper,
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../services/authService';
@@ -21,7 +22,7 @@ export default function RegisterPage() {
         register,
         watch,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm();
 
     const onSubmit = async (data) => {
@@ -47,11 +48,16 @@ export default function RegisterPage() {
     };
 
     return (
-        <Container maxWidth="xs">
-            <Box mt={8}>
-                <Typography variant="h4" align="center" gutterBottom>
-                    Register
-                </Typography>
+        <Container maxWidth="xs" className="register-container">
+            <Paper elevation={4} className="register-paper">
+                <Box mt={4} mb={2}>
+                    <Typography variant="h4" align="center" className="register-title">
+                        Create Account
+                    </Typography>
+                    <Typography variant="body2" align="center" className="register-subtitle">
+                        Join the Illusia ry booking system
+                    </Typography>
+                </Box>
 
                 {serverError && (
                     <Alert severity="error" sx={{ mb: 2 }}>
@@ -127,7 +133,7 @@ export default function RegisterPage() {
                         {isLoading ? 'Creating account...' : 'Create Account'}
                     </Button>
 
-                    <Box mt={2} textAlign="center">
+                    <Box mt={3} textAlign="center">
                         <Typography variant="body2" color="textSecondary">
                             OR
                         </Typography>
@@ -141,7 +147,7 @@ export default function RegisterPage() {
                         </Button>
                     </Box>
                 </form>
-            </Box>
+            </Paper>
         </Container>
     );
 }

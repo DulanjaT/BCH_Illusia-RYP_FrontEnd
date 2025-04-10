@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginPage.css';
+import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import {
     Button,
@@ -7,7 +7,8 @@ import {
     Typography,
     Container,
     Box,
-    Alert
+    Alert,
+    Paper
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../services/authService';
@@ -32,11 +33,9 @@ export default function LoginPage() {
                 password: data.password,
             });
 
-            // Save token and user info
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
 
-            // Redirect to dashboard
             navigate('/dashboard');
         } catch (error) {
             const message =
@@ -48,11 +47,16 @@ export default function LoginPage() {
     };
 
     return (
-        <Container maxWidth="xs">
-            <Box mt={8}>
-                <Typography variant="h4" align="center" gutterBottom>
-                    Login
-                </Typography>
+        <Container maxWidth="xs" className="login-container">
+            <Paper elevation={4} className="login-paper">
+                <Box mt={4} mb={2}>
+                    <Typography variant="h4" align="center" className="login-title">
+                        Sign In
+                    </Typography>
+                    <Typography variant="body2" align="center" className="login-subtitle">
+                        Enter your credentials to continue
+                    </Typography>
+                </Box>
 
                 {serverError && (
                     <Alert severity="error" sx={{ mb: 2 }}>
@@ -94,7 +98,7 @@ export default function LoginPage() {
                         {isLoading ? 'Signing in...' : 'Sign In'}
                     </Button>
                 </form>
-            </Box>
+            </Paper>
         </Container>
     );
 }
