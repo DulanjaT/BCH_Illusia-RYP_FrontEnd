@@ -1,0 +1,45 @@
+/* RegisterPage.css */
+
+.register-container {
+    margin-top: 4rem;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.register-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form .MuiTextField-root {
+    margin-bottom: 1rem;
+}
+
+.register-button {
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.register-alert {
+    margin-bottom: 1rem;
+}
+
+.register-divider {
+    margin-top: 1.5rem;
+    color: #7f8c8d;
+}
+
+.register-link-button {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: none;
+    color: #3498db;
+}
