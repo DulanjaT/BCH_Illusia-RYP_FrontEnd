@@ -18,6 +18,7 @@ export default function RegisterPage() {
 
     const {
         register,
+        watch,
         handleSubmit,
         formState: { errors }
     } = useForm();
@@ -100,6 +101,20 @@ export default function RegisterPage() {
                         helperText={errors.password?.message}
                     />
 
+                    <TextField
+                        label="Confirm Password"
+                        fullWidth
+                        margin="normal"
+                        required
+                        type="password"
+                        {...register('confirmPassword', {
+                            validate: (value) =>
+                                value === watch('password') || 'Passwords do not match',
+                        })}
+                        error={!!errors.confirmPassword}
+                        helperText={errors.confirmPassword?.message}
+                    />
+
                     <Button
                         type="submit"
                         variant="contained"
@@ -110,6 +125,20 @@ export default function RegisterPage() {
                     >
                         {isLoading ? 'Creating account...' : 'Create Account'}
                     </Button>
+
+                    <Box mt={2} textAlign="center">
+                        <Typography variant="body2" color="textSecondary">
+                            OR
+                        </Typography>
+
+                        <Button
+                            variant="text"
+                            onClick={() => navigate('/login')}
+                            sx={{ mt: 1 }}
+                        >
+                            Login here
+                        </Button>
+                    </Box>
                 </form>
             </Box>
         </Container>
