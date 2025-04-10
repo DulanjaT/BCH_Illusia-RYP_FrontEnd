@@ -1,6 +1,18 @@
 import React from 'react';
-import { Button, TextField, Typography, Container, Box, Card, CardContent } from '@mui/material';
+import {
+    Button,
+    Typography,
+    Container,
+    Box,
+    Card,
+    CardContent,
+    CardActionArea,
+} from '@mui/material';
+import { useNavigate, Outlet } from 'react-router-dom';
+
 export default function Dashboard() {
+    const navigate = useNavigate();
+
     return (
         <Container maxWidth="lg">
             <Box mt={5}>
@@ -13,17 +25,21 @@ export default function Dashboard() {
 
                 <Box display="grid" gridTemplateColumns={{ xs: '1fr', sm: '1fr 1fr 1fr' }} gap={3} mt={4}>
                     <Card>
-                        <CardContent>
-                            <Typography variant="h6">Browse Items</Typography>
-                            <Typography variant="body2">View all available storage items</Typography>
-                        </CardContent>
+                        <CardActionArea onClick={() => navigate('/dashboard/items')}>
+                            <CardContent>
+                                <Typography variant="h6">Browse Items</Typography>
+                                <Typography variant="body2">View all available storage items</Typography>
+                            </CardContent>
+                        </CardActionArea>
                     </Card>
+
                     <Card>
                         <CardContent>
                             <Typography variant="h6">Make a Booking</Typography>
                             <Typography variant="body2">Add items to your cart and select dates</Typography>
                         </CardContent>
                     </Card>
+
                     <Card>
                         <CardContent>
                             <Typography variant="h6">My Bookings</Typography>
@@ -31,6 +47,9 @@ export default function Dashboard() {
                         </CardContent>
                     </Card>
                 </Box>
+
+                {/* Nested route content will render here */}
+                <Outlet />
             </Box>
         </Container>
     );
